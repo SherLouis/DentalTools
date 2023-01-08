@@ -2,8 +2,11 @@ import React from 'react';
 import logo from './../../logo.svg';
 import './App.css';
 import Container from '@mui/material/Container';
-import { Typography, Button, Paper } from '@mui/material';
+import { Typography, Button, Paper, Box } from '@mui/material';
+import GenerateNote from '../GenerateNote/GenerateNote';
+import { ExamInputSections } from '../ExamInputSections/ExamInputSections';
 function App() {
+  // TODO: layout
   return (
     <Container className="App">
       <Paper>
@@ -17,6 +20,10 @@ function App() {
         <Button variant="contained" color="secondary">
           Secondary Button
         </Button>
+        <Box>
+          <GenerateNote text={'this is a test'} />
+          <ExamInputSections />
+        </Box>
       </Paper>
     </Container>
   );
