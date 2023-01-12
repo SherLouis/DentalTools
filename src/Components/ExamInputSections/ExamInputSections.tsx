@@ -1,26 +1,24 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box } from '@mui/material';
 import React from 'react';
+import { Box, Paper, TextField, Typography } from '@mui/material';
+import { CollapsibleSection } from '../CollapsibleSection/CollapsibleSection';
 
-export const ExamInputSections = () => {
-  return (
-    //TODO: Input sections with form?
-    <Box>
-        <Accordion>
-            <AccordionSummary>
-                Summary
-            </AccordionSummary>
-            <AccordionDetails>
-                Details
-            </AccordionDetails>
-        </Accordion>
-    </Box>
-  );
-}
-
+// Panel with all sections. To be used within a form
+export const ExamInputSections = () => (
+  //TODO: Input sections with form?
+  <Box>
+    <Typography variant='h4'>Inputs</Typography>
+    <Paper elevation={5} variant='elevation' sx={{padding: 1, bgcolor: 'lightslategray'}}>
+      <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
+      <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
+      <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
+    </Paper>
+  </Box>
+)
 
 
-type ExamProps = {
-  // TODO
-  text: string;
+
+export type ExamProps = {
+  // TODO: proper props
+  text: string
 }
 

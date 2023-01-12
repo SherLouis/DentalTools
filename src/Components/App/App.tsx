@@ -1,31 +1,39 @@
-import React from 'react';
-import logo from './../../logo.svg';
+import { ReactComponent as Logo } from './../../logo.svg'
 import './App.css';
-import Container from '@mui/material/Container';
-import { Typography, Button, Paper, Box } from '@mui/material';
+import { Typography, Button, Box, Stack, AppBar, Toolbar, SvgIcon } from '@mui/material';
 import GenerateNote from '../GenerateNote/GenerateNote';
 import { ExamInputSections } from '../ExamInputSections/ExamInputSections';
+import React, { useState } from 'react';
+
 function App() {
+  const [showNote, setShowNote] = useState(false);
+
   // TODO: layout
   return (
-    <Container className="App">
-      <Paper>
-        <img src={logo} className="App-logo" alt="logo" />
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App + Material-UI
-        </Typography>
-        <Button variant="contained" color="primary">
-          Primary Button
-        </Button>
-        <Button variant="contained" color="secondary">
-          Secondary Button
-        </Button>
-        <Box>
-          <GenerateNote text={'this is a test'} />
+    <Box>
+      <AppBar position="static">
+        <Toolbar>
+          <SvgIcon fontSize='large' color='inherit' sx={{ margin: 2 }}><Logo /></SvgIcon>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Dental Exam Note Generator
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Stack direction="row" margin={2} spacing={2} justifyContent="space-between" alignItems="flex-start">
+        <Stack flex={1} direction="column" spacing={2}>
           <ExamInputSections />
-        </Box>
-      </Paper>
-    </Container>
+          <Stack direction="row" spacing={2} justifyContent="flex-start" alignItems="center">
+            <Button variant="contained" color='primary' onClick={() => setShowNote(!showNote)}>Generate</Button>
+          </Stack>
+        </Stack>
+
+        {showNote && (
+          <Stack direction="column" flex={1} spacing={2}>
+            <GenerateNote text={'this is a test'} />
+          </Stack>
+        )}
+      </Stack >
+    </Box >
   );
 }
 export default App;

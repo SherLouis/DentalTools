@@ -1,11 +1,13 @@
 import React from 'react';
 import { TextField, Box } from '@mui/material';
+import { ExamProps } from '../ExamInputSections/ExamInputSections';
 
 function GenerateNote(examProps: ExamProps) {
 
   return (
     //TODO: format to correct size
-      <TextField multiline defaultValue={generateTextFromProps(examProps)}></TextField>
+    //TODO: only generate
+      <TextField fullWidth multiline minRows={10} defaultValue={generateTextFromProps(examProps)}></TextField>
   );
 }
 
@@ -15,9 +17,4 @@ const generateTextFromProps = (examProps: ExamProps) => {
 }
 
 export default GenerateNote;
-
-type ExamProps = {
-  // TODO
-  text: string;
-}
 
