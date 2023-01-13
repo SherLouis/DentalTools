@@ -6,10 +6,10 @@ export const CollapsibleSection = (props: CollapsibleSectionProps) => {
 
   return (
     <Accordion>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{bgcolor: 'gray', color: 'white'}}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         {props.title}
       </AccordionSummary>
-      <AccordionDetails sx={{bgcolor: 'lightgray'}}>
+      <AccordionDetails>
         {props.content}
       </AccordionDetails>
     </Accordion>

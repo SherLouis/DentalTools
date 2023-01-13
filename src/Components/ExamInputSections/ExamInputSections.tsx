@@ -7,7 +7,7 @@ export const ExamInputSections = () => (
   //TODO: Input sections with form?
   <Box>
     <Typography variant='h4'>Inputs</Typography>
-    <Paper elevation={5} variant='elevation' sx={{padding: 1, bgcolor: 'lightslategray'}}>
+    <Paper elevation={5}>
       <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
       <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
       <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
