@@ -1,0 +1,9 @@
+export { AlcoolInputSection } from "./AlcoolInputSection/AlcoolInputSection";
+export { DiagnosticInputSection } from "./DiagnosticInputSection/DiagnosticInputSection";
+export { EOEInputSection } from "./EOEInputSection/EOEInputSection";
+export { IOEInputSection } from "./IOEInputSection/IOEInputSection";
+export { ProcedureInputSection } from "./ProcedureInputSection/ProcedureInputSection";
+export { RadioExamInputSection } from "./RadioExamInputSection/RadioExamInputSection";
+export { TabaccoInputSection } from "./TabaccoInputSection/TabaccoInputSection";
+export { TreatmentInputSection } from "./TreatmentInputSection/TreatmentInputSection";
+export { GeneratlInputSection } from "./GeneralInputSection/GeneratlInputSection";

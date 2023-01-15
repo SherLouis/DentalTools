@@ -15,6 +15,7 @@ function DentalExamNoteGeneratorApp() {
     const colorMode = React.useContext(ColorModeContext);
   
     // TODO: layout
+    // TODO: transform note into a drawer
     return (
       <Box>
         <AppBar position="static">
@@ -35,7 +36,7 @@ function DentalExamNoteGeneratorApp() {
               <Button variant="contained" color='primary' onClick={() => setShowNote(!showNote)}>Generate</Button>
             </Stack>
           </Stack>
-  
+
           {showNote && (
             <Stack direction="column" flex={1} spacing={2}>
               <GenerateNote text={'this is a test'} />

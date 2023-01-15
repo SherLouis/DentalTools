@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Paper, TextField, Typography } from '@mui/material';
-import { CollapsibleSection } from '../CollapsibleSection/CollapsibleSection';
+import { Box, Paper, Typography } from '@mui/material';
+import * as InputSections from '../InputSections';
 
 // Panel with all sections. To be used within a form
 export const ExamInputSections = () => (
@@ -8,9 +8,15 @@ export const ExamInputSections = () => (
   <Box>
     <Typography variant='h4'>Inputs</Typography>
     <Paper elevation={5}>
-      <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
-      <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
-      <CollapsibleSection title={<Box>This is a test</Box>} content={<Box><TextField label="test input text"></TextField></Box>}></CollapsibleSection>
+      <InputSections.GeneratlInputSection/>
+      <InputSections.TabaccoInputSection />
+      <InputSections.AlcoolInputSection />
+      <InputSections.EOEInputSection />
+      <InputSections.IOEInputSection />
+      <InputSections.RadioExamInputSection />
+      <InputSections.DiagnosticInputSection />
+      <InputSections.TreatmentInputSection />
+      <InputSections.ProcedureInputSection />
     </Paper>
   </Box>
 )
