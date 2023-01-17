@@ -29,6 +29,7 @@ function DentalExamNoteGeneratorApp() {
             </IconButton>
           </Toolbar>
         </AppBar>
+
         <Stack direction="row" margin={2} spacing={2} justifyContent="space-between" alignItems="flex-start">
           <Stack flex={1} direction="column" spacing={2}>
             <ExamInputSections />
