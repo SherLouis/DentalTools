@@ -4,13 +4,15 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
 import { borderColor } from "@mui/system";
+import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
-export const EOEInputSection = () => {
-    const { control, handleSubmit, watch, formState: { errors } } = useForm();
-    const [isNormal, setIsNormal] = useState(true);
+export const EOEInputSection = (props: InputSectionProps) => {
+    const control = props.control;
+    const [isNormal, setIsNormal] = useState(control._defaultValues.EOEIsNormal);
+
     const [pathologies, setPathologies] = useState<Pathology[]>([{ location: "", shape: "", mobility: "", color: "", size: 0, effects: "" }]);
 
-    // TODO: How to include this in form: https://react-hook-form.com/api/usefieldarray 
+    // TODO: Include this in form: https://react-hook-form.com/api/usefieldarray 
     return (
         <CollapsibleSection
             title="Extra-Oral Exam"
@@ -23,7 +25,7 @@ export const EOEInputSection = () => {
                                 control={control}
                                 name="EOEIsNormal"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="EOEIsNormal" {...field} onChange={(_, checked) => setIsNormal(checked)}></Switch>
+                                    <Switch id="EOEIsNormal" defaultChecked={field.value} {...field} onChange={(_, checked) => setIsNormal(checked)}></Switch>
                                 )}
                             />
                         </Box>

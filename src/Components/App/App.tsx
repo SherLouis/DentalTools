@@ -26,6 +26,7 @@ export default function ToggleColorMode() {
     [mode],
   );
 
+  console.log('App rendered')
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>

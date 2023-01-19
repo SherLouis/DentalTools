@@ -1,14 +1,18 @@
 import { Box, Stack, Switch, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { Control, Controller, useForm } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
+import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
-export const GeneratlInputSection = () => {
-    const { control, handleSubmit, watch, formState: { errors } } = useForm();
-    const [hasAntecedents, setAntecedents] = useState(false);
-    const [hasMedication, setMedication] = useState(false);
-    const [hasAllergies, setAllergies] = useState(false);
+// TODO: contourner defaultChecked avec les defaultValues : comment faire???
+export const GeneratlInputSection = (props:InputSectionProps) => {
+    const control = props.control;
+    const [hasAntecedents, setAntecedents] = useState(control._defaultValues.hasAntecedents);
+    const [hasMedication, setMedication] = useState(control._defaultValues.hasMedication);
+    const [hasAllergies, setAllergies] = useState(control._defaultValues.hasAllergies);
 
+    console.log('General rendered');
+    
     return (
         <CollapsibleSection
             title="General"
@@ -34,7 +38,7 @@ export const GeneratlInputSection = () => {
                                 control={control}
                                 name="hasAntecedents"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="hasAntecedents" {...field} onChange={(_, checked) => setAntecedents(checked)}></Switch>
+                                    <Switch id="hasAntecedents" defaultChecked={field.value} {...field} onChange={(e, checked) => {setAntecedents(checked); field.onChange(e)}} ></Switch>
                                 )}
                             />
                         </Box>
@@ -58,7 +62,7 @@ export const GeneratlInputSection = () => {
                                 control={control}
                                 name="hasMedication"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="hasMedication" {...field} onChange={(_, checked) => setMedication(checked)}></Switch>
+                                    <Switch id="hasMedication" {...field} defaultChecked={field.value} onChange={(e, checked) => {setMedication(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>
@@ -82,7 +86,7 @@ export const GeneratlInputSection = () => {
                                 control={control}
                                 name="hasAllergies"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="hasAllergies" {...field} onChange={(_, checked) => setAllergies(checked)}></Switch>
+                                    <Switch id="hasAllergies" {...field} defaultChecked={field.value} onChange={(e, checked) => {setAllergies(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>

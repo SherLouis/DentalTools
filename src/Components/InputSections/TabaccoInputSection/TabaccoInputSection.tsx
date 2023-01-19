@@ -2,13 +2,14 @@ import { Box, Stack, Switch, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { Controller, useForm, useFormState } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
+import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
-export const TabaccoInputSection = () => {
-    const { control } = useForm();
-    const [isCurrent, setIsCurrent] = useState(false);
-    const [isPast, setIsPast] = useState(false);
-    const [years, setYears] = useState(0);
-    const [ppd, setPpd] = useState(0);
+export const TabaccoInputSection = (props: InputSectionProps) => {
+    const control = props.control;
+    const [isCurrent, setIsCurrent] = useState(control._defaultValues.tabaccoIsCurrent);
+    const [isPast, setIsPast] = useState(control._defaultValues.tabaccoIsPast);
+    const [years, setYears] = useState(control._defaultValues.tabbacoYears!);
+    const [ppd, setPpd] = useState(control._defaultValues.tabbacoPackPerDay!);
     
     return (
         <CollapsibleSection
@@ -22,7 +23,7 @@ export const TabaccoInputSection = () => {
                                 control={control}
                                 name="tabaccoIsCurrent"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="tabaccoIsCurrent" {...field} onChange={(e, checked) => {setIsCurrent(checked); field.onChange(e)}}></Switch>
+                                    <Switch id="tabaccoIsCurrent" defaultChecked={field.value} {...field} onChange={(e, checked) => {setIsCurrent(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>
@@ -35,7 +36,7 @@ export const TabaccoInputSection = () => {
                                 control={control}
                                 name="tabaccoIsPast"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="tabaccoIsPast" {...field} onChange={(e, checked) => {setIsPast(checked); field.onChange(e)}}></Switch>
+                                    <Switch id="tabaccoIsPast" defaultChecked={field.value} {...field} onChange={(e, checked) => {setIsPast(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>
@@ -50,7 +51,7 @@ export const TabaccoInputSection = () => {
                                     control={control}
                                     name="tabbacoYears"
                                     render={({ field: { ref, ...field } }) => (
-                                        <TextField type="number" id="tabbacoYears" {...field} onChange={(e)=>{setYears(parseInt(e.target.value))}}></TextField>
+                                        <TextField type="number" id="tabbacoYears" {...field} onChange={(e)=>{setYears(parseInt(e.target.value)); field.onChange(e)}}></TextField>
                                     )}
                                 />
                             </Box>
@@ -63,7 +64,7 @@ export const TabaccoInputSection = () => {
                                     control={control}
                                     name="tabbacoPackPerDay"
                                     render={({ field: { ref, ...field } }) => (
-                                        <TextField type="number" id="tabbacoPackPerDay" {...field} onChange={(e)=>{setPpd(parseInt(e.target.value))}}></TextField>
+                                        <TextField type="number" id="tabbacoPackPerDay" {...field} onChange={(e)=>{setPpd(parseInt(e.target.value)); field.onChange(e)}}></TextField>
                                     )}
                                 />
                             </Box>

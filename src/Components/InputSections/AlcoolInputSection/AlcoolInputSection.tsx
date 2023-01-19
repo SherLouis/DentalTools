@@ -2,14 +2,16 @@ import { Box, FormControlLabel, Radio, RadioGroup, Stack, Switch, TextField, Typ
 import { useState } from "react";
 import { Controller, useForm, useFormState } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
+import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
-export const AlcoolInputSection = () => {
-    const { control } = useForm();
-    const [isAlcool, setIsAlcool] = useState(false);
-    const [drinkFrequency, setDrinkFrequency] = useState("");
-    const [drinksPerDay, setDrinksPerDay] = useState(0);
-    const [years, setYears] = useState(0);
-    const [drinksPerMonth, setDrinksPerMonth] = useState(0);
+// FIXME: number fields become string when custom onChange
+export const AlcoolInputSection = (props: InputSectionProps) => {
+    const control = props.control;
+    const [isAlcool, setIsAlcool] = useState(control._defaultValues.isAlcoolUsage);
+    const [drinkFrequency, setDrinkFrequency] = useState(control._defaultValues.alcoolUsageFrequency);
+    const [drinksPerDay, setDrinksPerDay] = useState(control._defaultValues.alcoolDrinksPerDay);
+    const [years, setYears] = useState(control._defaultValues.alcoolYears);
+    const [drinksPerMonth, setDrinksPerMonth] = useState(control._defaultValues.alcoolDrinksPerMonth);
 
     return (
         <CollapsibleSection
@@ -23,7 +25,7 @@ export const AlcoolInputSection = () => {
                                 control={control}
                                 name="isAlcoolUsage"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="isAlcoolUsage" {...field} onChange={(e, checked) => { setIsAlcool(checked); field.onChange(e) }}></Switch>
+                                    <Switch id="isAlcoolUsage" defaultChecked={field.value} {...field} onChange={(e, checked) => { setIsAlcool(checked); field.onChange(e) }}></Switch>
                                 )}
                             />
                         </Box>
@@ -37,7 +39,7 @@ export const AlcoolInputSection = () => {
                                     control={control}
                                     name="alcoolUsageFrequency"
                                     render={({ field: { ref, ...field } }) => (
-                                        <RadioGroup row {...field} onChange={(e) => setDrinkFrequency(e.target.value)}>
+                                        <RadioGroup row {...field} onChange={(e) => { setDrinkFrequency(e.target.value); field.onChange(e) }}>
                                             <FormControlLabel
                                                 value="regular"
                                                 control={<Radio />}
@@ -62,7 +64,7 @@ export const AlcoolInputSection = () => {
                                         control={control}
                                         name="alcoolDrinksPerDay"
                                         render={({ field: { ref, ...field } }) => (
-                                            <TextField type="number" id="alcoolDrinksPerDay" {...field} onChange={(e) => { setDrinksPerDay(parseInt(e.target.value)) }}></TextField>
+                                            <TextField type="number" id="alcoolDrinksPerDay" {...field} onChange={(e) => { setDrinksPerDay(parseInt(e.target.value)); field.onChange(e) }}></TextField>
                                         )}
                                     />
                                 </Box>
@@ -75,7 +77,7 @@ export const AlcoolInputSection = () => {
                                         control={control}
                                         name="alcoolYears"
                                         render={({ field: { ref, ...field } }) => (
-                                            <TextField type="number" id="alcoolYears" {...field} onChange={(e) => { setYears(parseInt(e.target.value)) }}></TextField>
+                                            <TextField type="number" id="alcoolYears" {...field} onChange={(e) => { setYears(parseInt(e.target.value)); field.onChange(e) }}></TextField>
                                         )}
                                     />
                                 </Box>
