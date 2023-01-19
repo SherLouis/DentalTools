@@ -62,10 +62,9 @@ function DentalExamNoteGeneratorApp() {
       </IconButton>
     </Toolbar>
   </AppBar>)
-  
-  
-// FIXME: rendered 2 times for nothing...
-  console.log('DentalExamNoteGeneratorApp rendered')
+
+
+  // FIXME: rendered 2 times for nothing...
   return (
     <Box>
       {appHeader}
@@ -75,12 +74,12 @@ function DentalExamNoteGeneratorApp() {
             <ExamInputSections control={control} />
 
             <Stack direction="row" spacing={2} justifyContent="flex-start" alignItems="center">
-              <Button variant="contained" color='primary' type='submit' onClick={() => setShowNote(true)}>Generate</Button>
+              <Button variant="contained" color='primary' type='submit' onClick={() => {setShowNote(true)}}>Generate</Button>
             </Stack>
           </form>
         </Stack>
 
-        {(
+        {showNote && (
           <Stack direction="column" flex={1} spacing={2}>
             <GenerateNote {...examValues} />
           </Stack>

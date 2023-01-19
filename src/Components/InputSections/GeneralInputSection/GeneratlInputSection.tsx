@@ -10,8 +10,6 @@ export const GeneratlInputSection = (props:InputSectionProps) => {
     const [hasAntecedents, setAntecedents] = useState(control._defaultValues.hasAntecedents);
     const [hasMedication, setMedication] = useState(control._defaultValues.hasMedication);
     const [hasAllergies, setAllergies] = useState(control._defaultValues.hasAllergies);
-
-    console.log('General rendered');
     
     return (
         <CollapsibleSection
