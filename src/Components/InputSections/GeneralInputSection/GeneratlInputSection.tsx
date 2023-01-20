@@ -4,7 +4,6 @@ import { Control, Controller, useForm } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
 import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
-// TODO: contourner defaultChecked avec les defaultValues : comment faire???
 export const GeneratlInputSection = (props:InputSectionProps) => {
     const control = props.control;
     const [hasAntecedents, setAntecedents] = useState(control._defaultValues.hasAntecedents);
@@ -36,7 +35,7 @@ export const GeneratlInputSection = (props:InputSectionProps) => {
                                 control={control}
                                 name="hasAntecedents"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="hasAntecedents" defaultChecked={field.value} {...field} onChange={(e, checked) => {setAntecedents(checked); field.onChange(e)}} ></Switch>
+                                    <Switch id="hasAntecedents" checked={field.value} {...field} onChange={(e, checked) => {setAntecedents(checked); field.onChange(e)}} ></Switch>
                                 )}
                             />
                         </Box>
@@ -60,7 +59,7 @@ export const GeneratlInputSection = (props:InputSectionProps) => {
                                 control={control}
                                 name="hasMedication"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="hasMedication" {...field} defaultChecked={field.value} onChange={(e, checked) => {setMedication(checked); field.onChange(e)}}></Switch>
+                                    <Switch id="hasMedication" {...field} checked={field.value} onChange={(e, checked) => {setMedication(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>
@@ -84,7 +83,7 @@ export const GeneratlInputSection = (props:InputSectionProps) => {
                                 control={control}
                                 name="hasAllergies"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="hasAllergies" {...field} defaultChecked={field.value} onChange={(e, checked) => {setAllergies(checked); field.onChange(e)}}></Switch>
+                                    <Switch id="hasAllergies" {...field} checked={field.value} onChange={(e, checked) => {setAllergies(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>

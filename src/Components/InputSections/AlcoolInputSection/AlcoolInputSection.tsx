@@ -25,7 +25,7 @@ export const AlcoolInputSection = (props: InputSectionProps) => {
                                 control={control}
                                 name="isAlcoolUsage"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="isAlcoolUsage" defaultChecked={field.value} {...field} onChange={(e, checked) => { setIsAlcool(checked); field.onChange(e) }}></Switch>
+                                    <Switch id="isAlcoolUsage" checked={field.value} {...field} onChange={(e, checked) => { setIsAlcool(checked); field.onChange(e) }}></Switch>
                                 )}
                             />
                         </Box>

@@ -25,7 +25,7 @@ export const EOEInputSection = (props: InputSectionProps) => {
                                 control={control}
                                 name="EOEIsNormal"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="EOEIsNormal" defaultChecked={field.value} {...field} onChange={(_, checked) => setIsNormal(checked)}></Switch>
+                                    <Switch id="EOEIsNormal" checked={field.value} {...field} onChange={(e, checked) => {setIsNormal(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>

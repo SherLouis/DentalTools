@@ -23,7 +23,7 @@ export const TabaccoInputSection = (props: InputSectionProps) => {
                                 control={control}
                                 name="tabaccoIsCurrent"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="tabaccoIsCurrent" defaultChecked={field.value} {...field} onChange={(e, checked) => {setIsCurrent(checked); field.onChange(e)}}></Switch>
+                                    <Switch id="tabaccoIsCurrent" checked={field.value} {...field} onChange={(e, checked) => {setIsCurrent(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>
@@ -36,7 +36,7 @@ export const TabaccoInputSection = (props: InputSectionProps) => {
                                 control={control}
                                 name="tabaccoIsPast"
                                 render={({ field: { ref, ...field } }) => (
-                                    <Switch id="tabaccoIsPast" defaultChecked={field.value} {...field} onChange={(e, checked) => {setIsPast(checked); field.onChange(e)}}></Switch>
+                                    <Switch id="tabaccoIsPast" checked={field.value} {...field} onChange={(e, checked) => {setIsPast(checked); field.onChange(e)}}></Switch>
                                 )}
                             />
                         </Box>
