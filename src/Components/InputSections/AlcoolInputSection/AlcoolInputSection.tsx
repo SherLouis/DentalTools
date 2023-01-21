@@ -4,14 +4,10 @@ import { Controller, useForm, useFormState } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
 import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
-// FIXME: number fields become string when custom onChange
 export const AlcoolInputSection = (props: InputSectionProps) => {
     const control = props.control;
     const [isAlcool, setIsAlcool] = useState(control._defaultValues.isAlcoolUsage);
     const [drinkFrequency, setDrinkFrequency] = useState(control._defaultValues.alcoolUsageFrequency);
-    const [drinksPerDay, setDrinksPerDay] = useState(control._defaultValues.alcoolDrinksPerDay);
-    const [years, setYears] = useState(control._defaultValues.alcoolYears);
-    const [drinksPerMonth, setDrinksPerMonth] = useState(control._defaultValues.alcoolDrinksPerMonth);
 
     return (
         <CollapsibleSection
@@ -64,7 +60,7 @@ export const AlcoolInputSection = (props: InputSectionProps) => {
                                         control={control}
                                         name="alcoolDrinksPerDay"
                                         render={({ field: { ref, ...field } }) => (
-                                            <TextField type="number" id="alcoolDrinksPerDay" {...field} onChange={(e) => { setDrinksPerDay(parseInt(e.target.value)); field.onChange(e) }}></TextField>
+                                            <TextField type="number" id="alcoolDrinksPerDay" {...field}></TextField>
                                         )}
                                     />
                                 </Box>
@@ -77,7 +73,7 @@ export const AlcoolInputSection = (props: InputSectionProps) => {
                                         control={control}
                                         name="alcoolYears"
                                         render={({ field: { ref, ...field } }) => (
-                                            <TextField type="number" id="alcoolYears" {...field} onChange={(e) => { setYears(parseInt(e.target.value)); field.onChange(e) }}></TextField>
+                                            <TextField type="number" id="alcoolYears" {...field}></TextField>
                                         )}
                                     />
                                 </Box>

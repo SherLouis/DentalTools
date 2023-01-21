@@ -32,6 +32,36 @@ function DentalExamNoteGeneratorApp() {
     alcoolDrinksPerMonth: 0,
 
     EOEIsNormal: true,
+
+    radioPerformed: false,
+    radioDateTime: "",
+    radioType: "",
+    radioNumber: 0,
+    radioErrors: "",
+    radioNormalCondyles: true,
+    radioCondyles: "",
+    radioNormalSinuses: true,
+    radioSinuses: "",
+    radioNormalBasalBones: true,
+    radioBasalBones: "",
+    radioNormalApicalLesions: true,
+    radioApicalLesions: "",
+    radioNormalPeriodontalBoneLoss: true,
+    radioPeriodontalBoneLoss: "",
+    radioNormalTeeth: true,
+    radioTeeth: "",
+    radioFinalInterpretations: "",
+
+    diagnosticImpressions: "",
+
+    treatmentOptimalPlan: "",
+    treatmentAlternativePlans: "",
+    treatmentDiscussions: "",
+    treatmentChosenPlan: "",
+
+    procedureDescription: "",
+    procedureReviewd: false,
+    procedureConsent: "",
   }
 
   const [showNote, setShowNote] = useState(false);

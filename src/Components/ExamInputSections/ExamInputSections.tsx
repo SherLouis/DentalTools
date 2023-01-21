@@ -13,11 +13,11 @@ export const ExamInputSections = (props: InputSectionProps) => (
       <InputSections.TabaccoInputSection control={props.control} />
       <InputSections.AlcoolInputSection control={props.control} />
       <InputSections.EOEInputSection control={props.control} />
-      <InputSections.IOEInputSection />
-      <InputSections.RadioExamInputSection />
-      <InputSections.DiagnosticInputSection />
-      <InputSections.TreatmentInputSection />
-      <InputSections.ProcedureInputSection />
+      <InputSections.IOEInputSection control={props.control} />
+      <InputSections.RadioExamInputSection control={props.control} />
+      <InputSections.DiagnosticInputSection control={props.control} />
+      <InputSections.TreatmentInputSection control={props.control} />
+      <InputSections.ProcedureInputSection control={props.control} />
     </Paper>
   </Box>
 )

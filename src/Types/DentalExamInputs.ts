@@ -1,3 +1,4 @@
+
 export type DentalExamInputs = {
     reasonOfVisit: string
     hasAntecedents: boolean
@@ -19,5 +20,35 @@ export type DentalExamInputs = {
     alcoolDrinksPerMonth: number
 
     EOEIsNormal: boolean
+
+    radioPerformed: boolean
+    radioDateTime: string
+    radioType: string // TODO: change this to enum and choices in UI
+    radioNumber: number
+    radioErrors: string
+    radioNormalCondyles: boolean
+    radioCondyles: string
+    radioNormalSinuses: boolean
+    radioSinuses: string
+    radioNormalBasalBones: boolean
+    radioBasalBones: string
+    radioNormalApicalLesions: boolean
+    radioApicalLesions: string
+    radioNormalPeriodontalBoneLoss: boolean
+    radioPeriodontalBoneLoss: string
+    radioNormalTeeth: boolean
+    radioTeeth: string
+    radioFinalInterpretations: string
+
+    diagnosticImpressions: string
+
+    treatmentOptimalPlan: string
+    treatmentAlternativePlans: string
+    treatmentDiscussions: string
+    treatmentChosenPlan: string
+
+    procedureDescription: string
+    procedureReviewd: boolean
+    procedureConsent: string // TODO: change this to enum 
     
 }
