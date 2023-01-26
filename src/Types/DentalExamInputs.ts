@@ -1,3 +1,4 @@
+import { Pathology } from "./Pathology"
 
 export type DentalExamInputs = {
     reasonOfVisit: string
@@ -20,6 +21,7 @@ export type DentalExamInputs = {
     alcoolDrinksPerMonth: number
 
     EOEIsNormal: boolean
+    EOEPathologies: Pathology[]
 
     radioPerformed: boolean
     radioDateTime: string

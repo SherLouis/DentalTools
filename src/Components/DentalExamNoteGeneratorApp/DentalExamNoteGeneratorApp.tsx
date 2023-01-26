@@ -32,6 +32,7 @@ function DentalExamNoteGeneratorApp() {
     alcoolDrinksPerMonth: 0,
 
     EOEIsNormal: true,
+    EOEPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
 
     radioPerformed: false,
     radioDateTime: "",
