@@ -1,14 +1,16 @@
 import { ReactComponent as Logo } from './../../logo.svg'
-import { Typography, Button, Box, Stack, AppBar, Toolbar, SvgIcon, useTheme, IconButton } from '@mui/material';
+import { Typography, Button, Box, Stack, AppBar, Toolbar, SvgIcon, useTheme, IconButton, Drawer } from '@mui/material';
 import { GenerateNote } from '../GenerateNote/GenerateNote';
 import { ExamInputSections } from '../ExamInputSections/ExamInputSections';
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from "uuid";
 import LightMode from '@mui/icons-material/LightMode';
 import DarkMode from '@mui/icons-material/DarkMode';
 import { ColorModeContext } from './../App/App';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { DentalExamInputs } from '../../Types/DentalExamInputs';
 import { ConsentType } from '../../Types/Consent';
+import { CollapsibleSection } from '../CollapsibleSection/CollapsibleSection';
 
 
 function DentalExamNoteGeneratorApp() {
@@ -33,12 +35,12 @@ function DentalExamNoteGeneratorApp() {
     alcoolDrinksPerMonth: 0,
 
     EOEIsNormal: true,
-    EOEPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
+    EOEPathologies: [{ location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: "" }],
 
     IOESoftIsNormal: true,
-    IOESoftPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
+    IOESoftPathologies: [{ location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: "" }],
     IOEHardIsNormal: true,
-    IOEHardPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
+    IOEHardPathologies: [{ location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: "" }],
 
     radioPerformed: false,
     radioDateTime: "",
@@ -86,7 +88,6 @@ function DentalExamNoteGeneratorApp() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
-  // TODO: transform note into a drawer
   const appHeader = (<AppBar position="static">
     <Toolbar>
       <SvgIcon fontSize='large' color='inherit' sx={{ margin: 2 }}><Logo /></SvgIcon>
@@ -102,23 +103,29 @@ function DentalExamNoteGeneratorApp() {
   return (
     <Box>
       {appHeader}
-      <Stack direction="row" margin={2} spacing={2} justifyContent="space-between" alignItems="flex-start">
-        <Stack flex={1} direction="column" spacing={2}>
+      <Stack direction="column" margin={2} spacing={2} justifyContent="space-between" alignItems="center">
+        <Stack flex={1} direction="column" spacing={2} width="100%">
           <form onSubmit={handleSubmit(onSubmit)}>
             <ExamInputSections control={control} />
 
             <Stack direction="row" spacing={2} justifyContent="flex-start" alignItems="center">
-              <Button variant="contained" color='primary' type='submit' onClick={() => {setShowNote(true)}}>Generate</Button>
+              <Button variant="contained" color='primary' type='submit' onClick={() => { setShowNote(true) }}>Generate</Button>
             </Stack>
           </form>
         </Stack>
 
-        {showNote && (
-          <Stack direction="column" flex={1} spacing={2}>
-            <GenerateNote {...examValues} />
-          </Stack>
-        )}
+        <Drawer variant='persistent' open={showNote} onClose={() => setShowNote(false)} anchor='bottom'>
+          <CollapsibleSection
+            title={<Typography variant='h4' component='div'>Generated note</Typography>}
+            content={
+                <GenerateNote {...examValues} />
+            }
+          />
+        </Drawer>
       </Stack >
+
+
+
     </Box >
   );
 }
