@@ -1,6 +1,7 @@
 import { Box, FormControlLabel, Radio, RadioGroup, Stack, Switch, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
+import { ConsentType } from "../../../Types/Consent";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
 import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 
@@ -46,16 +47,12 @@ export const ProcedureInputSection = (props: InputSectionProps) => {
                                 name="procedureConsent"
                                 render={({ field: { ref, ...field } }) => (
                                     <RadioGroup row {...field}>
-                                        <FormControlLabel
-                                            value="verbal"
-                                            control={<Radio />}
-                                            label="Verbal"
-                                        />
-                                        <FormControlLabel
-                                            value="written"
-                                            control={<Radio />}
-                                            label="Written"
-                                        />
+                                        {Object.values(ConsentType).map((val) =>
+                                            <FormControlLabel
+                                                value={val}
+                                                control={<Radio />}
+                                                label={val}
+                                            />)}
                                     </RadioGroup>
                                 )}
                             />

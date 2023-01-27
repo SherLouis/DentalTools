@@ -8,6 +8,7 @@ import DarkMode from '@mui/icons-material/DarkMode';
 import { ColorModeContext } from './../App/App';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { DentalExamInputs } from '../../Types/DentalExamInputs';
+import { ConsentType } from '../../Types/Consent';
 
 
 function DentalExamNoteGeneratorApp() {
@@ -33,6 +34,11 @@ function DentalExamNoteGeneratorApp() {
 
     EOEIsNormal: true,
     EOEPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
+
+    IOESoftIsNormal: true,
+    IOESoftPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
+    IOEHardIsNormal: true,
+    IOEHardPathologies: [{location: "", shape: "", mobility: "", color: "", size_in_mm: 0, effects: ""}],
 
     radioPerformed: false,
     radioDateTime: "",
@@ -62,7 +68,7 @@ function DentalExamNoteGeneratorApp() {
 
     procedureDescription: "",
     procedureReviewd: false,
-    procedureConsent: "",
+    procedureConsent: ConsentType.None,
   }
 
   const [showNote, setShowNote] = useState(false);
@@ -80,7 +86,6 @@ function DentalExamNoteGeneratorApp() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
-  // FIXME: fix layout and spacing with form
   // TODO: transform note into a drawer
   const appHeader = (<AppBar position="static">
     <Toolbar>
@@ -94,8 +99,6 @@ function DentalExamNoteGeneratorApp() {
     </Toolbar>
   </AppBar>)
 
-
-  // FIXME: rendered 2 times for nothing...
   return (
     <Box>
       {appHeader}

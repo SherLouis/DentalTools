@@ -5,7 +5,6 @@ import { DentalExamInputs } from '../../Types/DentalExamInputs';
 
 export const GenerateNote = (props: DentalExamInputs) => {
   return (
-    //TODO: format to correct size
     <div key={uuidv4()}>
       <TextField fullWidth multiline minRows={10} defaultValue={generateTextFromProps(props)}></TextField>
     </div>

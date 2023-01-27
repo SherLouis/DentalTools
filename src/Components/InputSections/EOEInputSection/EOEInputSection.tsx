@@ -1,9 +1,8 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Fab, Stack, Switch, TextField, Typography } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { useState } from "react";
-import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { Controller, useFieldArray } from "react-hook-form";
 import { CollapsibleSection } from "../../CollapsibleSection/CollapsibleSection";
-import { borderColor } from "@mui/system";
 import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 import React from "react";
 
@@ -12,13 +11,11 @@ export const EOEInputSection = (props: InputSectionProps) => {
     const [isNormal, setIsNormal] = useState(control._defaultValues.EOEIsNormal);
     const [expandedId, setExpandedId] = React.useState<string | number>(0);
 
-    //const [pathologies, setPathologies] = useState<Pathology[]>([{ location: "", shape: "", mobility: "", color: "", size: 0, effects: "" }]);
     const { fields, append, remove } = useFieldArray({
         name: "EOEPathologies",
         control
     });
 
-    // TODO: Include this in form: https://react-hook-form.com/api/usefieldarray 
     return (
         <CollapsibleSection
             title="Extra-Oral Exam"
@@ -139,13 +136,4 @@ export const EOEInputSection = (props: InputSectionProps) => {
             }
         />
     )
-}
-
-type Pathology = {
-    location: string
-    shape: string
-    mobility: string
-    color: string
-    size: number
-    effects: string
 }

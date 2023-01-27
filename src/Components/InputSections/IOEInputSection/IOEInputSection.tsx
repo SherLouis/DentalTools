@@ -4,7 +4,6 @@ import { InputSectionProps } from "../../ExamInputSections/ExamInputSections";
 import { IOEHardTissues } from "./IOEHardTissues";
 import { IOESoftTissues } from "./IOESoftTissues";
 
-// TODO: IOE
 export const IOEInputSection = (props: InputSectionProps) => {
     return (
         <CollapsibleSection title="Intra-Oral Exam"

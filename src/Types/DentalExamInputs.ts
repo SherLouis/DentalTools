@@ -1,3 +1,4 @@
+import { ConsentType } from "./Consent"
 import { Pathology } from "./Pathology"
 
 export type DentalExamInputs = {
@@ -15,17 +16,22 @@ export type DentalExamInputs = {
     tabbacoPackPerDay: number
 
     isAlcoolUsage: boolean
-    alcoolUsageFrequency: string // TODO: change this to enum
+    alcoolUsageFrequency: string
     alcoolDrinksPerDay: number
     alcoolYears: number
     alcoolDrinksPerMonth: number
 
     EOEIsNormal: boolean
     EOEPathologies: Pathology[]
+    
+    IOESoftIsNormal: boolean
+    IOESoftPathologies: Pathology[]
+    IOEHardIsNormal: boolean
+    IOEHardPathologies: Pathology[]
 
     radioPerformed: boolean
     radioDateTime: string
-    radioType: string // TODO: change this to enum and choices in UI
+    radioType: string
     radioNumber: number
     radioErrors: string
     radioNormalCondyles: boolean
@@ -51,6 +57,5 @@ export type DentalExamInputs = {
 
     procedureDescription: string
     procedureReviewd: boolean
-    procedureConsent: string // TODO: change this to enum 
-    
+    procedureConsent: ConsentType
 }
