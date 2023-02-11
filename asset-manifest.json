@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DentalTools/static/css/main.e6c13ad2.css",
-    "main.js": "/DentalTools/static/js/main.b812c1d8.js",
+    "main.js": "/DentalTools/static/js/main.4b8ef00f.js",
     "static/media/logo.svg": "/DentalTools/static/media/logo.3f5ec85273bdb530feba5c52321eaa1f.svg",
     "index.html": "/DentalTools/index.html",
     "main.e6c13ad2.css.map": "/DentalTools/static/css/main.e6c13ad2.css.map",
-    "main.b812c1d8.js.map": "/DentalTools/static/js/main.b812c1d8.js.map"
+    "main.4b8ef00f.js.map": "/DentalTools/static/js/main.4b8ef00f.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.b812c1d8.js"
+    "static/js/main.4b8ef00f.js"
   ]
 }
