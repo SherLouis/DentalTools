@@ -38,7 +38,7 @@ export const RadioExamInputSection = (props: InputSectionProps) => {
                             <Box flex={5}>
                                 <Controller
                                     control={control}
-                                    name="tabbacoYears"
+                                    name="radioDateTime"
                                     render={({ field: { ref, ...field } }) => (
                                         <TextField type="datetime-local" id="radioDateTime" {...field}></TextField>
                                     )}
